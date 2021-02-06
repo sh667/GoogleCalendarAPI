@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/event_name/new" method="POST">
+    <div class="row">
+        <div class="col">
+            <label for="title">Title</label>
+            <input id="title" type="text" class="form-control" placeholder="Title" name="title">
+        </div>
+        <div class="col">
+            <label for="start_event">Start Time</label>
+            <input id="start_event" type="text" class="form-control" placeholder="YYYY-MM-DDTHH:MM:SS"
+                   name="start_event">
+        </div>
+        <div class="col">
+            <label for="end_event">End Time</label>
+            <input id="end_event" type="text" class="form-control" placeholder="YYYY-MM-DDTHH:MM:SS" name="end_event">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Success</button>
+
+</form>
+
+{% endblock %}

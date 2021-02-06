@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if message %}
+            <div style="width: available; horiz-align: center ">
+                <label>{{ message.message }}</label>
+            </div>
+        {% endif %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">End Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for event in event_name %}
+    <tr>
+        <td>{{ event.id }}</td>
+        <td>{{ event.title  }}</td>
+        <td>{{ event.start_event}}</td>
+        <td>{{ event.end_event}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card" class="m-5 p-2">
+    <h5 class="card-title">{{ event.title }}</h5>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ event.start_event }}</li>
+        <li class="list-group-item">{{ event.end_event }}</li>
+    </ul>
+    <div class="card-body">
+        <a href="/edit/{{event.id}}" class="card-link btn btn-primary">edit</a>
+    </div>
+</div>
+<form action="/delete/{{event.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div>
+        <label class="label" role="label"><b>Edit Profile</b></label>
+    </div>
+{% if message %}
+            <div style="width: available; horiz-align: center ">
+                <label>{{ message.message }}</label>
+            </div>
+        {% endif %}
+{% if user %}
+<form action="/update-user/{{ user.login_name }}" method="POST">
+    <div style="align-items: center; ;padding: 10px; border: 10px">
+        <div class="row" style="width: 800px">
+            <div class="col">
+                <label for="first_name">First Name </label>
+                <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" value="{{ user.first_name }}">
+            </div>
+            <div class="col">
+                <label for="last_name">Last Name </label>
+                <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{ user.last_name }}">
+            </div>
+            <div class="col">
+                <label for="phone">Phone# </label>
+                <input id="phone" type="tel" class="form-control" placeholder="Phone#" name="phone" value="{{ user.phone }}">
+            </div>
+        </div>
+        <br>
+        <br>
+        <!--<div class="row" style="width: 800px">
+            <div class="col">
+                <label for="email_id">User ID (Email Id) </label>
+                <input id="email_id" type="email" class="form-control" placeholder="Email ID" name="email_id" onfocusout="javascript: validateEmail()" value="{{ user.login_name }}">
+            </div>
+            &lt;!&ndash;<div class="col">
+                <label for="password">Password </label>
+                <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+            </div>
+            <div class="col">
+                <label for="confirm_password">Confirm Password </label>
+                <input id="confirm_password" type="password" class="form-control" placeholder="Confirm Password" name="confirm_password">
+            </div>&ndash;&gt;
+        </div>-->
+        <br>
+        <br>
+        <!--<div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-outline-primary">Sign Up &gt; </button>
+            </div>
+            <div class="col">
+                <button type="reset" class="btn btn-outline-dark">Reset</button>
+            </div>
+        </div>-->
+        <div class="row-fluid" style="width: 800px">
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="horiz-align: left"><button class="btn btn-outline-primary" type="submit">Submit</button></td>
+                        <!--<td style="horiz-align: center"><a class="btn btn-outline-secondary" href="/" role="button">Login</a></td>-->
+                        <td style="horiz-align: right"><button class="btn btn-outline-secondary" type="reset">Reset</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+<!--<form action="/login" method="get">
+<div style="align-content: center">
+            <button type="submit" class="btn btn-outline-secondary">Cancel</button>
+        </div>
+</form>-->
+
+<script type="text/javascript">
+    function validateEmail() {
+        $.ajax({
+            method: 'GET',
+            url: "/validate-email/"+$('#email_id').val()
+        }).then(function(data) {
+            if(data.formatCheck == 'true'
+                && data.smtpCheck == 'true') {
+                alert("Valid Email ID");
+            } else {
+                alert("Invalid! Email ID");
+            }
+        });
+    }
+
+</script>
+{% endblock %}

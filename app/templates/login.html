@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <!-- Bootstrap CSS -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              rel="stylesheet">
+        <link href='/static/lib/main.css' rel='stylesheet'/>
+        <script src='/static/lib/main.js'></script>
+        <script src='/static/examples/google-calendar.html'></script>
+    <head>
+
+    <body>
+        <div style="width: available; horiz-align: center "><h3>{{ title }}</h3></div>
+        {% if message %}
+            <div style="width: available; horiz-align: center ">
+                <label>{{ message.message }}</label>
+            </div>
+        {% endif %}
+
+        <div class="container text-center" style="align-items: center; border: 10px;border: #4f4f96; box-sizing: border-box" role="textbox">
+            <form action="/login" method="POST">
+                <div class="row" style="width: 300px">
+                    <label for="login_name"><b>User ID</b></label>
+                    <input class="form-control" id="login_name" name="login_name" placeholder="Enter Email ID" type="email">
+                </div>
+                <div class="row" style="width: 300px">
+                    <label for="password"><b>Password</b></label>
+                    <input class="form-control" id="password" name="password" placeholder="Enter Password" type="password">
+                </div>
+                <div class="row-fluid" style="width: 300px">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="horiz-align: left"><button class="btn btn-primary" type="submit">Login</button></td>
+                                <td style="horiz-align: center"><a class="btn btn-info" href="/signup" role="button">Sign Up</a></td>
+                                <td style="horiz-align: right"><button class="btn btn-secondary" type="reset">Reset</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
